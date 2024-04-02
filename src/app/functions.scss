@@ -1,0 +1,7 @@
+@mixin generate-colors($color-map) {
+	:root {
+		@each $color, $value in $color-map {
+			--#{$color}: #{$value};
+		}
+	}
+}
