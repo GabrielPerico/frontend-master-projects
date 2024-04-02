@@ -1,0 +1,218 @@
+$mobile: 375px;
+$desktop: 1440px;
+
+:root {
+	--red-gradient--400: linear-gradient(135deg, #f8bfbf 0%, #ee8b8b 100%);
+	--gray-300: #423a3a;
+
+	--red-300: #ce9898;
+	--red-400: #ee8b8b;
+
+	--white-900: #ffffff;
+}
+
+.main-body {
+	min-height: 100dvh;
+	display: flex;
+	flex-direction: column;
+
+	background: var(--white-900);
+
+	font-family: var(--font-josefin-sans);
+
+	padding: 3.2rem;
+	gap: 1.6rem;
+
+	.logo {
+		width: 100px;
+		height: 100%;
+	}
+
+	h1 {
+		font-size: 4rem;
+		letter-spacing: 1.0825rem;
+		line-height: 4.2rem;
+		color: var(--gray-300);
+		font-weight: 600;
+		text-align: center;
+
+		margin-top: 3.2rem;
+
+		text-transform: uppercase;
+
+		span {
+			font-weight: 300;
+			color: var(--red-300);
+		}
+	}
+
+	img {
+		width: calc(100% + 6.4rem);
+		height: auto;
+
+		margin: 1.6rem -3.2rem;
+	}
+
+	p {
+		color: var(--red-300);
+		font-size: 1.4rem;
+		line-height: 2.2rem;
+		text-align: center;
+
+		margin-bottom: 1.6rem;
+	}
+
+	.input-group {
+		display: flex;
+
+		align-items: center;
+		justify-content: center;
+
+		width: 100%;
+
+		box-shadow: inset 0 0 0 1px var(--red-300);
+		border-radius: 100vh;
+
+		gap: 0.8rem;
+
+		&.invalid {
+			box-shadow: inset 0 0 0 2px #f96464;
+
+			.error-icon {
+				min-width: 24px;
+				height: 2.4rem;
+			}
+		}
+
+		input {
+			width: 100%;
+
+			background-color: var(--white-900);
+			border: unset;
+
+			border-top-left-radius: 100vh;
+			border-bottom-left-radius: 100vh;
+
+			outline: none;
+
+			padding: 1.2rem 0 1.2rem calc(2.8rem - 2px);
+			margin-left: 2px;
+
+			font-size: 1.4rem;
+			line-height: 2.8rem;
+
+			color: var(--gray-300);
+
+			overflow: hidden;
+			text-overflow: ellipsis;
+
+			&::placeholder {
+				color: var(--red-300);
+			}
+		}
+
+		.input-btn {
+			padding: 1.8rem 2.8rem;
+
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			background: var(--red-gradient--400);
+
+			box-shadow: 0 15px 20px 0 rgba($color: #c66e6e, $alpha: 24.76%);
+
+			border-radius: inherit;
+
+			border: unset;
+		}
+	}
+
+	.desktop-bg-img {
+		display: none;
+	}
+
+	// Desktop
+	@media (min-width: 768px) {
+		display: grid;
+
+		grid-template-columns: 1fr auto;
+
+		grid-template-rows: auto 1fr;
+
+		padding: 9rem 22rem;
+
+		gap: 13.6rem 22rem;
+
+		isolation: isolate;
+
+		.logo {
+			width: 15.8rem;
+			height: auto;
+
+			grid-column: 1 / 2;
+			grid-row: 1 / 2;
+		}
+
+		.hero-content {
+			display: flex;
+			flex-direction: column;
+
+			gap: 3.2rem;
+
+			grid-column: 1 / 2;
+			grid-row: 2 / 3;
+
+			h1 {
+				font-size: 6.4rem;
+				letter-spacing: 1.7321rem;
+				line-height: 6.4rem;
+
+				text-align: left;
+
+				margin-top: 0;
+			}
+
+			p {
+				text-align: left;
+				font-size: 1.6rem;
+
+				line-height: 2.8rem;
+
+				margin: 0;
+			}
+
+			.input-group {
+				margin-top: 0.8rem;
+			}
+		}
+
+		picture {
+			grid-column: 2 / 3;
+			grid-row: 1 / -1;
+
+			margin: -9rem -22rem -9rem 0;
+			height: calc(100% + 18rem);
+
+			img {
+				width: auto;
+				height: 100%;
+				margin: 0;
+			}
+		}
+
+		.desktop-bg-img {
+			$desktop-bg-img: url('data:image/svg+xml,<%3Fxml version="1.0" encoding="UTF-8"%3F><svg xmlns="http://www.w3.org/2000/svg" width="830" height="800"><defs><linearGradient id="a" x1="95.861%" x2="10.913%" y1="2.476%" y2="101.718%"><stop offset="0%" stop-color="%23FFF1F1"></stop><stop offset="100%" stop-color="%23FFF"></stop></linearGradient><linearGradient id="b" x1="95.937%" x2="10.848%" y1="2.476%" y2="101.718%"><stop offset="0%" stop-color="%23FFF1F1"></stop><stop offset="100%" stop-color="%23FFF"></stop></linearGradient></defs><g fill="none" fill-rule="evenodd"><path fill="url(%23a)" d="M0 800c48.557-184.991 167.048-301.57 355.473-349.737C543.898 402.096 688.074 252.008 788 0v800H0z" transform="rotate(180 394 400)"></path><path fill="url(%23b)" d="M413 800c25.696-97.814 88.4-159.455 188.112-184.924C700.824 589.608 777.12 510.25 830 377v423H413z"></path></g></svg>');
+
+			background-image: $desktop-bg-img;
+
+			display: block;
+			grid-column: 1 / 2;
+			grid-row: 1 / -1;
+
+			margin: -9rem -22rem;
+			height: calc(100% + 18rem);
+
+			z-index: -1;
+		}
+	}
+}
